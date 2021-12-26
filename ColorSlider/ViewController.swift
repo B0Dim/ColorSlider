@@ -23,20 +23,30 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        changeViewColor()
     }
     
     private func changeViewColor() {
-        
+        viewColor.backgroundColor = UIColor(
+            red: CGFloat(sliderRed.value),
+            green: CGFloat(sliderGreen.value),
+            blue: CGFloat(sliderBlue.value),
+            alpha: 1)
     }
 
     @IBAction func changerRedValue(_ sender: UISlider) {
+        countRedColor.text = String(format:"%.2f", sender.value)
+        changeViewColor()
     }
     
     @IBAction func changeGreenValue(_ sender: UISlider) {
+        countGreenColor.text = String(format:"%.2f", sender.value)
+        changeViewColor()
     }
     
     @IBAction func changeBlueValue(_ sender: UISlider) {
+        countBlueColor.text = String(format:"%.2f", sender.value)
+        changeViewColor()
     }
     
 }
